@@ -16,7 +16,7 @@ ORDER BY m.id, mg.genre
 LIMIT 50;
 
 -- 5. Melakukan join movie dan roles berdasarkan table actors
-select DISTINCT on (m.id) a.first_name as actor_first_name, a.last_name as actor_last_name, r.role, m.name as movie_title from actors a
-join roles r on r.movie_id = a.id
+select a.first_name as actor_first_name, a.last_name as actor_last_name, r.role, m.name as movie_title from actors a
+join roles r on r.actor_id = a.id
 join movies m on m.id = r.movie_id
 limit 50;
