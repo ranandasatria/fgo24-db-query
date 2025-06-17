@@ -9,4 +9,7 @@ SELECT d.first_name as director_first_name, d.last_name as director_last_name, c
 JOIN directors_genres dg ON dg.director_id = d.id 
 GROUP BY d.id
 
-
+SELECT * from (SELECT a.id, a.first_name as actor_first_name, a.last_name as actor_last_name, count(*) as role_count FROM actors a
+JOIN roles r ON r.actor_id = a.id
+GROUP BY a.id) 
+where role_count > 5
