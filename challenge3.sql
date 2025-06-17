@@ -14,13 +14,18 @@ where role_count > 5;
 
 --8. Mendapatkan directors paling produktif
 -- menggunakan count, order by, dan limit
-SELECT d.first_name, d.last_name, count(*) as movie_count from directors d
+SELECT d.first_name, d.last_name, count(*) as movie_count FROM directors d
 JOIN movies_directors md ON md.director_id = d.id
 GROUP BY d.id
 ORDER BY movie_count DESC
 LIMIT 1;
 
 
-
 --9. Mendapatkan tahun tersibuk sepanjang masa 
+SELECT movies.year as release_year, count(year) as total_movie from movies
+GROUP BY year
+ORDER BY total_movie DESC
+LIMIT 1;
+
+
 --10. Mendapatkan movies dengan genres yang dibuatkan menjadi 1 column (value dipisahkan dengan comma) dengan menggunakan string_agg
