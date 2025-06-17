@@ -29,3 +29,12 @@ LIMIT 1;
 
 
 --10. Mendapatkan movies dengan genres yang dibuatkan menjadi 1 column (value dipisahkan dengan comma) dengan menggunakan string_agg
+
+SELECT
+ m.id, 
+ m.name,
+ string_agg (genre, ';') movie
+FROM movies m
+JOIN movies_genres mg ON mg.movie_id = m.id 
+GROUP BY m.id
+
