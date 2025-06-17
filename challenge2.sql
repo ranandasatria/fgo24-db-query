@@ -5,4 +5,4 @@ SELECT m.id, m.name as title, m.year, m.rankscore as rating, d.first_name as dir
 JOIN movies_directors md on md.movie_id = m.id
 JOIN directors d on  d.id = m.id
 JOIN movies_genres mg on mg.movie_id = m.id
-LIMIT 5
+LIMIT 50
